@@ -52,8 +52,31 @@ public class CheckItemPriceMojo extends AbstractMojo {
             }
 
             for (Material type : Material.values()) {
+                if(type.name().startsWith("LEGACY")){
+                    continue;
+                }
+                
                 if (!enumNames.contains(type.name())) {
                     getLog().warn("Material missing in enum: " + type.name() + "(0,0),");
+                }
+            }
+            
+            for (String enumName : enumNames) {
+                if ("UNKNOWN".equals(enumName)) {
+                    continue;
+                }
+                boolean exists = false;
+                for (Material type : Material.values()) {
+                    if(type.name().startsWith("LEGACY")){
+                        break;
+                    }
+                    if (type.name().equals(enumName)) {
+                        exists = true;
+                        break;
+                    }
+                }
+                if (!exists) {
+                    getLog().warn("Enum contains value not in Material: " + enumName);
                 }
             }
 
