@@ -7,7 +7,7 @@
 
     <groupId>de.relluem94.maven.plugin</groupId>
     <artifactId>item-check-plugin</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>Item Check Price Plugin</name>
@@ -110,7 +110,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <version>3.13.1</version>
+                <version>3.15.2</version>
                 <configuration>
                     <goalPrefix>item-check-price</goalPrefix>
                 </configuration>
@@ -122,6 +122,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.15.0</version>
+                <configuration>
+                    <release>25</release>
+                    <encoding>UTF-8</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>

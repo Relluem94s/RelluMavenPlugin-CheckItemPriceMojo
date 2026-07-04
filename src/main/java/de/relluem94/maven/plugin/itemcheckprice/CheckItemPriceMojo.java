@@ -3,6 +3,7 @@ package de.relluem94.maven.plugin.itemcheckprice;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import org.apache.maven.plugin.AbstractMojo;
@@ -30,7 +31,7 @@ public class CheckItemPriceMojo extends AbstractMojo {
                         return null;
                     }
                 })
-                .filter(url -> url != null)
+                .filter(Objects::nonNull)
                 .toArray(URL[]::new);
 
             ClassLoader projectClassLoader = new URLClassLoader(urls, this.getClass().getClassLoader());
