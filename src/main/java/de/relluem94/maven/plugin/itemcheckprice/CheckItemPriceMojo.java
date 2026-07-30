@@ -37,7 +37,7 @@ public class CheckItemPriceMojo extends AbstractMojo {
             ClassLoader projectClassLoader = new URLClassLoader(urls, this.getClass().getClassLoader());
 
             Class<?> enumClass = Class.forName(
-                "de.relluem94.minecraft.server.spigot.essentials.constants.ItemPrice",
+                "de.relluem94.minecraft.server.spigot.essentials.enums.ItemPrice",
                 true,
                 projectClassLoader
             );
